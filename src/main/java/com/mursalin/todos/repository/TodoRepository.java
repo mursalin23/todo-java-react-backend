@@ -1,7 +1,8 @@
 package com.mursalin.todos.repository;
 
 import com.mursalin.todos.model.Todo;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.ListCrudRepository;
 
-public interface TodoRepository extends CrudRepository<Todo, Integer> {
+public interface TodoRepository extends ListCrudRepository<Todo, Integer> {
+
 }

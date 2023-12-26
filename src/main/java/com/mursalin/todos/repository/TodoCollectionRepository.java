@@ -31,8 +31,12 @@ public class TodoCollectionRepository {
         return todo;
     }
 
-    public boolean exitsById(Integer id) {
+    public boolean existById(Integer id) {
         return todoList.stream().anyMatch(todo -> todo.id().equals(id));
+    }
+
+    public void deleteById(Integer id) {
+        todoList.removeIf(todo -> todo.id().equals(id));
     }
 
     @PostConstruct
@@ -45,9 +49,5 @@ public class TodoCollectionRepository {
                 dueDate,
                 1
         ));
-    }
-
-    public void deleteById(Integer id) {
-        todoList.removeIf(todo -> todo.id().equals(id));
     }
 }

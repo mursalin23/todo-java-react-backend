@@ -13,7 +13,7 @@ POST http://localhost:8080/todo
 Content-Type: application/json
 
 {
-  "id": 2,
+  "id": 102,
   "description":,
   "duedate": "2024-01-01T16:00:00",
   "priority": 5
@@ -31,4 +31,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/todo/5
+DELETE http://localhost:8080/todo/33

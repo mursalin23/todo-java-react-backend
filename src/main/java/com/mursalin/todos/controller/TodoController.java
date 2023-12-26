@@ -1,7 +1,7 @@
 package com.mursalin.todos.controller;
 
 import com.mursalin.todos.model.Todo;
-import com.mursalin.todos.repository.TodoCollectionRepository;
+import com.mursalin.todos.repository.TodoRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,10 +15,10 @@ import java.util.List;
 @CrossOrigin
 public class TodoController {
 
-    final TodoCollectionRepository repository;
+    final TodoRepository repository;
 
     @Autowired
-    public TodoController(TodoCollectionRepository repository) {
+    public TodoController(TodoRepository repository) {
         this.repository = repository;
     }
 
@@ -42,7 +42,7 @@ public class TodoController {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@RequestBody Todo todo, @PathVariable Integer id) {
-        if(!repository.exitsById(id))
+        if(!repository.existsById(id))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Todo not found");
         repository.save(todo);
     }
@@ -50,7 +50,7 @@ public class TodoController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Integer id) {
-        if(!repository.exitsById(id))
+        if(!repository.existsById(id))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Todo not found");
         repository.deleteById(id);
     }
