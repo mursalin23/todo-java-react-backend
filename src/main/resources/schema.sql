@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS Todo (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     description TEXT NOT NULL,
-    dueDate DATETIME,
-    priority INT
+    dueDate TIMESTAMP,
+    priority INTEGER
 );
 
 INSERT INTO Todo (description, dueDate, priority) VALUES
